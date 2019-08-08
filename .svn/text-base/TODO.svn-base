@@ -1,0 +1,30 @@
+To Do List:
+
+! When I try to connect to a non VNC computer, the program gives me a net error and leaves the space in blank. This is ok, but i can’t remove this space.
+! Host's clipboard is being transferred to the multiple computers??
+
+
+- Remove use of ListIterator and AbstractList -- it's from java 1.2
+- Clean up the password & username strings in the unencrypted save file (contains many escaped null characters)
+- Reorganize the launchViewer code between VncThumbnailViewer and VncViewersList (and AddHostDialog)
+
++ Listen for "Quit" event.
+	http://developer.apple.com/documentation/Java/Reference/1.4.2/appledoc/api/com/apple/eawt/ApplicationListener.html
++ Invoke a repaint when maximize button is clicked
++ Hide the Cursor when view only
+	Additionally: Disable Cursor Shape Updates
++ Scale Remote Cursor
++ soloViewer should be like the original vncviewer
+	independent frame
+	no scaling
+	scroll panel
+	AND multiple of them
++ Return a viewer to it's origianl location in main Frame's layout when soloHostClosed
+
+
++ Gracefully handle loading a (very) large list of hosts. (Perhpas a preference for max number or overflow into tabs in the main window.)
+
+
++ Remove use of VncViewer, instead create new class called VncViewerThumbnail (VncViewerTN)
++ New GUI (more like apple's remote desktop)
+
