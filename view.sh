@@ -24,12 +24,20 @@ case $key in
         shift # past value
         ;;
     -p|--port)
-        PORT="$2"
         shift # past argument
-        shift # past value
+        for p in $@;
+        do
+            if [[ $p == -* ]] 
+            then 
+                break
+            fi
+            PORT="$PORT $p"
+            echo "added $p -> $PORT"
+            shift #shift value
+        done
         ;;
-    --PASS)
-        pass="$2"
+    --pass)
+        PASS="$2"
         shift # past argument
         shift # past value
         ;;
@@ -40,8 +48,6 @@ case $key in
         ;;
 esac
 done
-
-echo "host=$HOST port=$PORT pass=$PASS"
 
 if [ $HOST = "localhost" ] 
 then
@@ -55,4 +61,4 @@ fi
 
 echo $params
 
-java -jar bin/VncThumbnailViewer.jar $params
+# java -jar bin/VncThumbnailViewer.jar $params
