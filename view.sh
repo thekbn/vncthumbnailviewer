@@ -61,4 +61,4 @@ fi
 
 echo $params
 
-# java -jar bin/VncThumbnailViewer.jar $params
+java -jar bin/VncThumbnailViewer.jar $params
