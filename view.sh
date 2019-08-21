@@ -32,7 +32,7 @@ case $key in
                 break
             fi
             PORT="$PORT $p"
-            echo "added $p -> $PORT"
+            # echo "added $p -> $PORT"
             shift #shift value
         done
         ;;
@@ -52,12 +52,13 @@ done
 if [ $HOST = "localhost" ] 
 then
     [ -z "$PORT" ] && PORT=$(docker ps  --format "{{.Image}} {{.Ports}}" | grep "selenium/node" | awk '{print $2}' | sed 's/.*:\([[:digit:]]*\)->.*/\1/')
-
-    for p in $PORT; 
-    do 
-        params="$params HOST $HOST PORT $p PASSWORD $PASS"
-    done
 fi
+
+#prepare params by pairing host to each port
+for p in $PORT; 
+do 
+    params="$params HOST $HOST PORT $p PASSWORD $PASS"
+done
 
 echo $params
 
